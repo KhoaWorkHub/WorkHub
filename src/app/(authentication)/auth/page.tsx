@@ -11,9 +11,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { MdOutlineAutoAwesome } from "react-icons/md";
+import { Provider } from "@supabase/supabase-js";
+import { supabaseBrowserClient } from "../../../../supabase/supabaseClient";
 
 const AuthPage = () => {
-const [isAuthenticating, setAuthenticating] = useState(false);
+const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   const formSchema = z.object({
     email: z.string().email().min(2, { message: "Email must be 2 characters" }),
@@ -29,6 +31,18 @@ const [isAuthenticating, setAuthenticating] = useState(false);
   async function onSubmit(values: z.infer<typeof formSchema>){
     console.log(values);
   }
+  
+  async function socialAuth(provider: Provider) {
+    setIsAuthenticating(true);
+    await supabaseBrowserClient.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+    setIsAuthenticating(false);
+  }
+
   return (
     <div className="min-h-screen p-5 grid text-center place-content-center bg-white">
       <div className="max-w-[450px]"></div>
@@ -54,7 +68,7 @@ const [isAuthenticating, setAuthenticating] = useState(false);
           disabled={isAuthenticating}
           variant="outline"
           className="py-6 border-2 flex space-x-3"
-          // onClick={() => socialAuth("google")}
+          onClick={() => socialAuth("google")}
         >
           <FcGoogle size={30} />
           <Typography
@@ -67,7 +81,7 @@ const [isAuthenticating, setAuthenticating] = useState(false);
           disabled={isAuthenticating}
           variant="outline"
           className="py-6 border-2 flex space-x-3"
-          // onClick={() => socialAuth("github")}
+          onClick={() => socialAuth("github")}
         >
           <RxGithubLogo size={30} />
           <Typography
