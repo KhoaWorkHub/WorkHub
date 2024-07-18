@@ -1,0 +1,6 @@
+//Steps
+// 1: Get user data
+// 2: If no user data, redirect to auth
+// 3: Find any workspace this user belongs
+// 4: If no workspace, redirect to create workspace
+// 5: Redirect to the first workspace this user belongs
