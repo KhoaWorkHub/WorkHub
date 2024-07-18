@@ -1,7 +1,7 @@
 'use client';
 import { Button } from "@/components/ui/button";
 import Typography from "@/components/ui/typography";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsSlack } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
@@ -11,9 +11,32 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { MdOutlineAutoAwesome } from "react-icons/md";
+import { Provider } from "@supabase/supabase-js";
+import { supabaseBrowserClient } from "../../../../supabase/supabaseClient";
+import { registerWithEmail } from "@/actions/register-with-email";
+import { useRouter } from "next/navigation";
 
 const AuthPage = () => {
-const [isAuthenticating, setAuthenticating] = useState(false);
+const [isAuthenticating, setIsAuthenticating] = useState(false);
+const [isMounted, setIsMounted] = useState(false);
+const router = useRouter();
+
+
+useEffect(() => {
+  const getCurrUser = async () => {
+    const {
+      data: { session },
+    } = await supabaseBrowserClient.auth.getSession();
+
+    if (session) {
+      return router.push('/');
+    }
+  };
+
+  getCurrUser();
+  setIsMounted(true);
+}, [router]);
+
 
   const formSchema = z.object({
     email: z.string().email().min(2, { message: "Email must be 2 characters" }),
@@ -27,8 +50,31 @@ const [isAuthenticating, setAuthenticating] = useState(false);
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>){
-    console.log(values);
+    setIsAuthenticating(true);
+    const response = await registerWithEmail(values);
+    const {data, error} = JSON.parse(response);
+    setIsAuthenticating(false);
+    if(error) {
+      console.warn("Sign in error",error);
+    } else {
+      console.log(data);
+    }
   }
+  
+  async function socialAuth(provider: Provider) {
+    setIsAuthenticating(true);
+    await supabaseBrowserClient.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+    setIsAuthenticating(false);
+  }
+
+  if (!isMounted) return null;
+
+
   return (
     <div className="min-h-screen p-5 grid text-center place-content-center bg-white">
       <div className="max-w-[450px]"></div>
@@ -54,7 +100,7 @@ const [isAuthenticating, setAuthenticating] = useState(false);
           disabled={isAuthenticating}
           variant="outline"
           className="py-6 border-2 flex space-x-3"
-          // onClick={() => socialAuth("google")}
+          onClick={() => socialAuth("google")}
         >
           <FcGoogle size={30} />
           <Typography
@@ -67,7 +113,7 @@ const [isAuthenticating, setAuthenticating] = useState(false);
           disabled={isAuthenticating}
           variant="outline"
           className="py-6 border-2 flex space-x-3"
-          // onClick={() => socialAuth("github")}
+          onClick={() => socialAuth("github")}
         >
           <RxGithubLogo size={30} />
           <Typography
