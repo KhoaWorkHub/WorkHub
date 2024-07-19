@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import slugify from 'slugify';
 import { v4 as uuid } from 'uuid';
-import { toast } from 'sonner';
+import {toast} from 'sonner';
 
 import ImageUpload from '@/components/image-upload';
 import { Button } from '@/components/ui/button';

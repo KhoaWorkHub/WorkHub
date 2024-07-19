@@ -114,3 +114,16 @@ BEGIN
   where id = channel_id;
 END;
 $$ language plpgsql;
+
+ADD MEMBERS TO WORKSPACE
+create
+or replace function add_member_to_workspace (user_id text, workspace_id uuid) return void as $$
+begin
+  update workspace set members = members || array[user_id]
+  where id = workspace_id;
+end;
+$$ language plpgsql;  
+
+create policy "SuperAdminCanUpdate" on "public"."workspaces" as permissive
+for update
+    to public using ("super_admin" = auth.uid ());
