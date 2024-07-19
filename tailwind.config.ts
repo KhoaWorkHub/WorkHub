@@ -29,6 +29,7 @@ const config = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           dark: '#451c49',
+          light: '#311834',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -76,7 +77,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
 } satisfies Config
 
 export default withUt(config)

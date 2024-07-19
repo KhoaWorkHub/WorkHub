@@ -13,7 +13,7 @@ const ImageUpload = () => {
         <Image
           src={imageUrl}
           className='object-cover w-full h-full rounded-md'
-          alt='workspace'
+          alt='workspaces'
           width={320}
           height={320}
         />
