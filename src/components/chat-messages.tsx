@@ -2,13 +2,13 @@ import { ElementRef, FC, useRef } from 'react';
 import { format } from 'date-fns';
 
 import { Channel, User, Workspace } from '@/types/app';
-import { useChatFetcher } from '../hooks/use-chat-fetcher';
-import DotAnimatedLoader from './dot-animated-loader';
-import ChatItem from './chat-item';
-import { useChatSocketConnection } from '../hooks/use-chat-socket-connection';
-import IntroBanner from './intro-banner';
+import { useChatFetcher } from '@/hooks/use-chat-fetcher';
+import DotAnimatedLoader from '@/components/dot-animated-loader';
+import ChatItem from '@/components/chat-item';
+import { useChatSocketConnection } from '@/hooks/use-chat-socket-connection';
+import IntroBanner from '@/components/intro-banner';
 import { Button } from '@/components/ui/button';
-import { useChatScrollHandler } from '../hooks/use-chat-scroll-handler';
+import { useChatScrollHandler } from '@/hooks/use-chat-scroll-handler';
 
 const DATE_FORMAT = 'd MMM yyy, HH:mm';
 

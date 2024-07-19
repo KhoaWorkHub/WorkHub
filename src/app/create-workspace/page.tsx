@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import slugify from 'slugify';
 import { v4 as uuid } from 'uuid';
-import {toast} from 'sonner';
+import { toast } from 'sonner';
 
 import ImageUpload from '@/components/image-upload';
 import { Button } from '@/components/ui/button';
@@ -57,7 +57,7 @@ const Step1 = () => {
       />
 
       <Typography
-        text='This will be the name of your KhoaWorkHub workspace - choose something that your team will recognize.'
+        text='This will be the name of your Slackzz workspace - choose something that your team will recognize.'
         className='text-neutral-300'
         variant='p'
       />

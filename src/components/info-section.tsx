@@ -12,7 +12,7 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import Typography from '@/components/ui/typography';
-import CreateChannelDialog from './create-channel-dialog';
+import CreateChannelDialog from '@/components/create-channel-dialog';
 import { Channel, User, Workspace } from '@/types/app';
 
 const InfoSection: FC<{

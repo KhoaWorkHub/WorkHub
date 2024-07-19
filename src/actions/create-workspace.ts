@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseServerClient } from '../../supabase/supabaseServer';
+import { supabaseServerClient } from '@/supabase/supabaseServer';
 import { getUserData } from './get-user-data';
 import { updateUserWorkspace } from './update-user-workspace';
 import { addMemberToWorkspace } from './add-member-to-workspace';

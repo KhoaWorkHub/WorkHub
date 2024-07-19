@@ -39,7 +39,6 @@ const Sidebar: FC<SidebarProps> = ({
   currentWorkspaceData,
   userData,
 }) => {
-    // console.log(userWorksapcesData, currentWorkspaceData, userData);
   const { color } = useColorPrefrences();
 
   let backgroundColor = 'bg-primary-dark';

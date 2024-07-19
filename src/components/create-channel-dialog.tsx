@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { createChannel } from '../actions/channels';
+import { createChannel } from '@/actions/channels';
 
 const CreateChannelDialog: FC<{
   dialogOpen: boolean;

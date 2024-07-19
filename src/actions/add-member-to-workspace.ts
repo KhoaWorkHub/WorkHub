@@ -1,4 +1,4 @@
-import { supabaseServerClient } from '../../supabase/supabaseServer';
+import { supabaseServerClient } from '@/supabase/supabaseServer';
 
 export const addMemberToWorkspace = async (
   userId: string,

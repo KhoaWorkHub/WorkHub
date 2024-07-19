@@ -51,6 +51,64 @@ export type Database = {
           },
         ]
       }
+      direct_messages: {
+        Row: {
+          content: string | null
+          created_at: string
+          file_url: string | null
+          id: number
+          is_deleted: boolean
+          updated_at: string
+          user: string
+          user_one: string
+          user_two: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          file_url?: string | null
+          id?: number
+          is_deleted?: boolean
+          updated_at?: string
+          user: string
+          user_one: string
+          user_two: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          file_url?: string | null
+          id?: number
+          is_deleted?: boolean
+          updated_at?: string
+          user?: string
+          user_one?: string
+          user_two?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "direct_message_user_one_fkey"
+            columns: ["user_one"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "direct_message_user_two_fkey"
+            columns: ["user_two"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "direct_messages_user_fkey"
+            columns: ["user"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       messages: {
         Row: {
           channel_id: string
