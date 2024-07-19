@@ -1,7 +1,7 @@
 'use server';
 
-import { supabaseServerClient } from '../../supabase/supabaseServer';
-// import { Channel } from '@/types/app';
+import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { Channel } from '@/types/app';
 
 export const getUserWorkspaceChannels = async (
   workspaceId: string,
@@ -41,5 +41,5 @@ export const getUserWorkspaceChannels = async (
     channel.members.includes(userId)
   );
 
-//   return userWorkspaceChannels as Channel[];
+  return userWorkspaceChannels as Channel[];
 };

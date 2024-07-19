@@ -21,7 +21,7 @@ import { File } from 'lucide-react';
 
 import { Channel, User, Workspace } from '@/types/app';
 import Typography from './ui/typography';
-import { supabaseBrowserClient } from '../../supabase/supabaseClient';
+import { supabaseBrowserClient } from '@/supabase/supabaseClient';
 
 type ChatFileUploadProps = {
   userData: User;

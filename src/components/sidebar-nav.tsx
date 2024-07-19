@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/popover';
 import CreateWorkspace from '@/components/create-workspace';
 import { useRouter } from 'next/navigation';
-import ProgressBar from '@/components/progress-bar';
+import ProgressBar from './progress-bar';
 import { cn } from '@/lib/utils';
 import { useColorPrefrences } from '@/providers/color-prefrences';
 import { Copy } from 'lucide-react';

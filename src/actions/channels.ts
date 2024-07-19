@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseServerClient } from '../../supabase/supabaseServer';
+import { supabaseServerClient } from '@/supabase/supabaseServer';
 import { getUserData } from './get-user-data';
 
 export const createChannel = async ({

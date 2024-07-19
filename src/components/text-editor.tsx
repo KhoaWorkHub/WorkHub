@@ -18,7 +18,7 @@ import {
   DialogHeader,
 } from '@/components/ui/dialog';
 import { DialogTitle } from '@radix-ui/react-dialog';
-import ChatFileUpload from '../components/chat-file-upload';
+import ChatFileUpload from '@/components/chat-file-upload';
 
 type TextEditorProps = {
   apiUrl: string;

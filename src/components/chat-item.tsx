@@ -7,7 +7,7 @@ import {
   MdOutlineAdminPanelSettings,
   MdOutlineAssistantPhoto,
 } from 'react-icons/md';
-import { useChatFile } from '../hooks/use-chat-file';
+import { useChatFile } from '@/hooks/use-chat-file';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Form, FormControl, FormField, FormItem } from './ui/form';
