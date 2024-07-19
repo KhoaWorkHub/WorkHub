@@ -7,7 +7,7 @@ import {
 } from '@/actions/workspaces';
 import Sidebar from '@/components/sidebar';
 import { Workspace as UserWorkspace } from '@/types/app';
-// import InfoSection from '@/components/info-section';
+import InfoSection from '@/components/info-section';
 // import { getUserWorkspaceChannels } from '@/actions/get-user-workspace-channels';
 // import NoDataScreen from '@/components/no-data-component';
 
@@ -48,9 +48,9 @@ const Workspace = async ({
           userData={userData}
           userWorkspaceChannels={userWorkspaceChannels}
           currentChannelId=''
-        />
+        /> */}
 
-        <NoDataScreen
+        {/* <NoDataScreen
           userId={userData.id}
           workspaceId={currentWorkspaceData.id}
           workspaceName={currentWorkspaceData.name}
