@@ -57,7 +57,7 @@ const Step1 = () => {
       />
 
       <Typography
-        text='This will be the name of your Slackzz workspace - choose something that your team will recognize.'
+        text='This will be the name of your Khoa workspace - choose something that your team will recognize.'
         className='text-neutral-300'
         variant='p'
       />

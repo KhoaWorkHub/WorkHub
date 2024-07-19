@@ -10,8 +10,8 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Slackzz',
-  description: 'Slack clone codewithlari',
+  title: 'Khoa Chat App',
+  description: 'Khoa Chat App',
 };
 
 export const revalidate = 0;
