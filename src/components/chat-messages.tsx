@@ -62,7 +62,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({
         : `direct_messages:post`,
     updateKey:
       type === 'Channel'
-        ? `${queryKey}:channel-messaegs:update`
+        ? `${queryKey}:channel-messages:update`
         : `direct_messages:update`,
     paramValue,
   });
@@ -82,7 +82,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({
   }
 
   const renderMessages = () =>
-    data.pages.map(page =>
+    data.pages.flatMap(page =>
       page.data.map(message => (
         <ChatItem
           key={message.id}
@@ -97,10 +97,10 @@ const ChatMessages: FC<ChatMessagesProps> = ({
           socketUrl={socketUrl}
           socketQuery={socketQuery}
           channelData={channelData}
-        />
-      ))
-    );
-
+          />
+        ))
+      );
+  
   return (
     <div ref={chatRef} className='flex-1 flex flex-col py-4 overflow-y-auto'>
       {!hasNextPage && (
@@ -121,7 +121,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({
           )}
         </div>
       )}
-      <div className='flex flex-col-reverse mt-auto'>{renderMessages()}</div>
+      <div className='mt-auto'>{renderMessages()}</div>
       <div ref={bottomRef} />
     </div>
   );
