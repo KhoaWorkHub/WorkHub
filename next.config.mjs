@@ -18,9 +18,13 @@ const nextConfig = {
           protocol: 'https',
           hostname: 'lh3.googleusercontent.com',
         },
+        // Add the new hostname here
+        {
+          protocol: 'https',
+          hostname: 'elitwyqvhplliggxvvxp.supabase.co',
+        },
       ],
     },
   };
   
-  export default nextConfig;
-  
+export default nextConfig;

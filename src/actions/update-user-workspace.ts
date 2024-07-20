@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../supabase/supabaseServer';
 
 export const updateUserWorkspace = async (
   userId: string,

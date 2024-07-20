@@ -1,5 +1,5 @@
 import { workspaceInvite } from '@/actions/workspaces';
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../../../supabase/supabaseServer';
 import { redirect } from 'next/navigation';
 
 const InvitePage = async ({

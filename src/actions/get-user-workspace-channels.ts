@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../supabase/supabaseServer';
 import { Channel } from '@/types/app';
 
 export const getUserWorkspaceChannels = async (

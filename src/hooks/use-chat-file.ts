@@ -17,7 +17,7 @@ export const useChatFile = (filePath: string) => {
       try {
         const {
           data: { publicUrl },
-        } = await supabase.storage.from('chat-files').getPublicUrl(filePath);
+        } = await supabase.storage.from('chat-file').getPublicUrl(filePath);
 
         if (publicUrl) {
           setPublicUrl(publicUrl);

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { getUserData } from '@/actions/get-user-data';
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../../../supabase/supabaseServer';
 
 function getPagination(page: number, size: number) {
   const limit = size ? +size : 10;

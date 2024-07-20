@@ -1,8 +1,8 @@
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../supabase/supabaseServer';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { User } from '@/types/app';
-import supabaseServerClientPages from '@/supabase/supabaseSeverPages';
+import supabaseServerClientPages from '../../supabase/supabaseServerPages';
 
 export const getUserData = async (): Promise<User | null> => {
   const supabase = await supabaseServerClient();

@@ -21,7 +21,7 @@ import { File } from 'lucide-react';
 
 import { Channel, User, Workspace } from '@/types/app';
 import Typography from './ui/typography';
-import { supabaseBrowserClient } from '@/supabase/supabaseClient';
+import { supabaseBrowserClient } from '../../supabase/supabaseClient';
 
 type ChatFileUploadProps = {
   userData: User;
@@ -79,7 +79,7 @@ const ChatFileUpload: FC<ChatFileUploadProps> = ({
     const fileName = `chat/${fileTypePrefix}-${uniqueId}`;
 
     const { data, error } = await supabase.storage
-      .from('chat-files')
+      .from('chat-file')
       .upload(fileName, file, {
         cacheControl: '3600',
         upsert: false,

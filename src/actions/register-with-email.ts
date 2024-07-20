@@ -1,6 +1,6 @@
 'use server';
 
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../supabase/supabaseServer';
 
 export async function registerWithEmail({ email }: { email: string }) {
   const supabase = await supabaseServerClient();
