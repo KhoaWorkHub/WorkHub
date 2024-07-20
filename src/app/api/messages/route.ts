@@ -1,5 +1,5 @@
 import { getUserData } from '@/actions/get-user-data';
-import { supabaseServerClient } from '@/supabase/supabaseServer';
+import { supabaseServerClient } from '../../../../supabase/supabaseServer';
 import { NextResponse } from 'next/server';
 
 function getPagination(page: number, size: number) {
